@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MP1 - ABC XYZ</title>
+  </head>
+  <body>
+    <div id="wrapper">
+      <nav>
+        <span id="logo">ABC XYZ</span>
+        <div id="navBtns">
+          <a class="navBtn" href="#mainSection">Main</a>
+          <span class="divider">|</span>
+          <a class="navBtn" href="#solarSystemSection">Solar System</a>
+          <span class="divider">|</span>
+          <a class="navBtn" href="#starLifecycleSection"> Star Lifecycle </a>
+          <span class="divider">|</span>
+          <a class="navBtn" href="#contactSection">Contact</a>
+        </div>
+      </nav>
+
+      <section id="mainSection">
+        <video loop autoplay muted poster="assets/initPic.PNG">
+          <source src="assets/spacevid.mp4" />
+        </video>
+        <div id="overlay">
+          <h1>ABC<span class="space">[SPACE]</span>XYZ</h1>
+          <p>
+            A web-page about space made with HTML, SCSS, and JavaScript for
+            CS498RK The Art of Web Programming.
+          </p>
+          <p>Why? Because why<span class="space">[space]</span>not?</p>
+        </div>
+      </section>
+
+      <section id="solarSystemSection">
+        <h2>Our Solar System</h2>
+        <div id="solarSystemGrid"></div>
+      </section>
+
+      <section id="starLifecycleSection">
+        <h2>Lifecycle of a Star</h2>
+        <div id="carousel"></div>
+      </section>
+
+      <section id="contactSection">
+        <h2>Contact / Social Media</h2>
+        <p id="note">
+          (This isn't a real website, so these social media handles don't exist)
+        </p>
+        <div id="socialMediaDiv"></div>
+      </section>
+    </div>
+  </body>
+  <script type="module" src="js/main.js"></script>
+</html>

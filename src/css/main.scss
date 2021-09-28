@@ -1,0 +1,498 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+$nav-height: 85px;
+$light-grey: #d3d3d3;
+$dark-grey: #1b1b1b;
+$hover-grey: #343434;
+
+body {
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+#wrapper {
+  overflow-x: hidden;
+  position: relative;
+}
+
+nav {
+  background-color: black;
+  color: $light-grey;
+  height: $nav-height;
+  display: flex;
+  width: 100%;
+  top: 0;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  z-index: 5;
+  font-size: 0.9rem;
+}
+
+#logo {
+  position: absolute;
+  left: 0;
+  margin-left: 1%;
+}
+
+#navBtns {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+}
+
+.navBtn {
+  border: none;
+  background-color: $dark-grey;
+  color: white;
+  text-decoration: none;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0.7;
+  cursor: pointer;
+  vertical-align: middle;
+  transition: 0.5s;
+  padding: 4px;
+
+  @media (max-width: 480px) {
+    width: 60px;
+    height: 30px;
+  }
+  @media (min-width: 480px) and (max-width: 768px) {
+    width: 65px;
+    height: 35px;
+  }
+  @media (min-width: 768px) and (max-width: 1200px) {
+    width: 90px;
+    height: 35px;
+  }
+  @media (min-width: 1200px) {
+    width: 90px;
+    height: 35px;
+  }
+
+  &:hover {
+    background-color: $hover-grey;
+  }
+}
+
+.currNavBtn {
+  background-color: white;
+  color: black;
+  opacity: 1;
+}
+
+.divider {
+  color: white;
+  margin: 0 4%;
+  transform: scaleX(0.7) scaleY(2.5);
+  opacity: 0.6;
+  display: inline-block;
+}
+
+#mainSection {
+  height: 100vh;
+
+  video {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    object-fit: cover;
+    left: 0;
+    top: 0;
+  }
+}
+
+#overlay {
+  z-index: 1;
+  color: white;
+  transform: translateY(80%);
+
+  p {
+    font-size: 1.03rem;
+    width: 80%;
+    margin: 2% auto;
+  }
+}
+
+h1 {
+  margin-top: $nav-height + 10;
+  font-size: 2.7rem;
+}
+
+.space {
+  color: black;
+}
+
+#solarSystemSection {
+  margin-top: -$nav-height - 35;
+  background-image: url('../assets/spacebg.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding-bottom: 3%;
+}
+
+h2 {
+  color: white;
+  font-size: 1.8rem;
+  padding-top: 2%;
+  padding-bottom: 1%;
+}
+
+#solarSystemGrid {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  margin: 3% 3%;
+}
+
+.entityCard {
+  width: 300px;
+  height: 300px;
+  background-color: black;
+  margin: 1%;
+  color: white;
+  padding-top: 2%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: 0.5s;
+
+  &:hover {
+    cursor: pointer;
+    button {
+      opacity: 0.85;
+      visibility: visible;
+    }
+  }
+
+  button {
+    position: absolute;
+    border: none;
+    width: 100px;
+    height: 50px;
+    padding: 2px;
+    transition: 0.5s;
+    opacity: 0;
+    background-color: $dark-grey;
+    color: $light-grey;
+    transform: translateY(240%);
+    visibility: hidden;
+    border-radius: 4px;
+
+    &:hover {
+      cursor: pointer;
+      background-color: $hover-grey;
+    }
+  }
+
+  @keyframes modalFadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes modalFadeOut {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+  }
+
+  .entityModal {
+    cursor: auto;
+    position: fixed;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    color: $light-grey;
+    background-color: $dark-grey;
+    z-index: 4;
+    opacity: 0;
+    display: none;
+    border: 1px solid black;
+
+    @media (max-width: 480px) {
+      width: 95%;
+    }
+    @media (min-width: 480px) and (max-width: 768px) {
+      width: 70%;
+    }
+    @media (min-width: 768px) and (max-width: 1200px) {
+      width: 70%;
+    }
+    @media (min-width: 1200px) {
+      width: 50%;
+    }
+
+    h3 {
+      color: white;
+      font-size: 1.6rem;
+      margin-top: -3%;
+    }
+
+    .modalX {
+      color: #8b0000;
+      font-size: 2.3rem;
+      font-weight: 600;
+      display: inline-block;
+      transform: scaleX(1.1) scaleY(0.95);
+      cursor: pointer;
+      transition: 0.4s;
+
+      @media (max-width: 480px) {
+        margin-left: 80%;
+      }
+      @media (min-width: 480px) and (max-width: 768px) {
+        margin-left: 85%;
+      }
+      @media (min-width: 768px) and (max-width: 1200px) {
+        margin-left: 88%;
+      }
+      @media (min-width: 1200px) {
+        margin-left: 92%;
+      }
+
+      &:hover {
+        color: red;
+      }
+    }
+
+    p {
+      width: 80%;
+      margin: 4% auto;
+    }
+
+    a {
+      padding-bottom: 4%;
+      display: inline-block;
+      color: blue;
+      font-size: 1.01rem;
+
+      #svg {
+        opacity: 0.8;
+        margin-bottom: -6px;
+        margin-left: 2px;
+      }
+
+      &:hover {
+        color: #3b3bff;
+
+        #svg {
+          opacity: 1;
+        }
+      }
+    }
+  }
+}
+
+.entityImg {
+  @media (max-width: 480px) {
+    width: 150px;
+    height: 100px;
+  }
+  @media (min-width: 480px) and (max-width: 768px) {
+    width: 170px;
+    height: 120px;
+  }
+  @media (min-width: 768px) and (max-width: 1200px) {
+    width: 220px;
+    height: 160px;
+  }
+  @media (min-width: 1200px) {
+    width: 280px;
+    height: 220px;
+  }
+}
+
+.modalEntityImg {
+  display: inline;
+
+  @media (max-width: 480px) {
+    width: 100px;
+    height: 80px;
+  }
+  @media (min-width: 480px) and (max-width: 768px) {
+    width: 130px;
+    height: 100px;
+  }
+  @media (min-width: 768px) and (max-width: 1200px) {
+    width: 160px;
+    height: 120px;
+  }
+  @media (min-width: 1200px) {
+    width: 230px;
+    height: 170px;
+  }
+}
+
+.imgsDiv {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding-top: 2%;
+}
+
+#starLifecycleSection {
+  background-image: url('../assets/spacebg2.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin-top: -25px;
+}
+
+#carousel {
+  min-height: 600px;
+}
+
+.stage {
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  z-index: 1;
+  min-height: 500px;
+  position: absolute;
+  transition: 0.5s;
+  color: white;
+  background-color: black;
+
+  @media (max-width: 480px) {
+    width: 99%;
+  }
+  @media (min-width: 480px) and (max-width: 768px) {
+    width: 90%;
+  }
+  @media (min-width: 768px) and (max-width: 1200px) {
+    width: 70%;
+  }
+  @media (min-width: 1200px) {
+    width: 60%;
+  }
+
+  img {
+    @media (max-width: 480px) {
+      width: 110px;
+      height: 110px;
+    }
+    @media (min-width: 480px) and (max-width: 768px) {
+      width: 150px;
+      height: 150px;
+    }
+    @media (min-width: 768px) and (max-width: 1200px) {
+      width: 180px;
+      height: 180px;
+    }
+    @media (min-width: 1200px) {
+      width: 200px;
+      height: 200px;
+    }
+  }
+
+  .leftArrow {
+    position: absolute;
+    left: 0;
+    top: 40%;
+    cursor: pointer;
+    margin-left: 1%;
+    transform: rotate(180deg);
+
+    &:hover g {
+      transition: 0.5s;
+      stroke: white;
+    }
+  }
+
+  .rightArrow {
+    position: absolute;
+    right: 0;
+    top: 40%;
+    cursor: pointer;
+    margin-right: 1%;
+
+    &:hover g {
+      transition: 0.5s;
+      stroke: white;
+    }
+  }
+
+  p {
+    width: 80%;
+    margin: 0 auto;
+    padding-top: 8%;
+    color: $light-grey;
+  }
+}
+
+.activeStage {
+  opacity: 1;
+  z-index: 3;
+}
+
+.prevStage,
+.nextStage {
+  z-index: 2;
+}
+
+.prevStage {
+  transform: translateX(-100%);
+}
+
+.nextStage {
+  transform: translateX(100vw);
+}
+
+#contactSection {
+  background-image: url('../assets/spacebg2.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin-top: -25px;
+  color: white;
+  min-height: 350px;
+
+  #note {
+    margin-top: -1%;
+    margin-bottom: -1%;
+    color: #d3d3d3;
+  }
+
+  div {
+    display: flex;
+    justify-content: center;
+  }
+
+  .socialMedia {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 4%;
+    opacity: 0.8;
+    transition: 0.4s;
+
+    img {
+      margin-bottom: -5px;
+    }
+
+    &:hover {
+      cursor: pointer;
+      opacity: 1;
+    }
+
+    .icon {
+      margin-top: -10%;
+    }
+  }
+}
