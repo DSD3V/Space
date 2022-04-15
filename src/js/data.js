@@ -153,19 +153,19 @@ export const starLifecycle = [
 
 export const socialMedia = [
   {
-    username: 'ABCSPACEXYZ',
+    username: 'Space',
     icon: 'https://img.icons8.com/color/48/000000/twitter--v1.png',
-    link: 'https://twitter.com/abcspacexyz',
+    link: 'https://twitter.com/space',
   },
   {
-    username: 'ABCSPACEXYZ',
+    username: 'Space',
     icon: 'https://img.icons8.com/fluency/48/000000/instagram-new.png',
-    link: 'https://instagram.com/abcspacexyz',
+    link: 'https://instagram.com/space',
   },
   {
-    username: 'ABCSPACEXYZ',
+    username: 'Space',
     icon: 'https://img.icons8.com/color/48/000000/linkedin.png',
-    link: 'https:/linkedin.com/abcspacexyz',
+    link: 'https:/linkedin.com/space',
   },
 ];
 
